@@ -30,7 +30,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="CB_CategoriaCarro" min="-2" pref="198" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="JB_Prepar_Marca" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JB_MuestraMarcas" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="CB_MarcaCarro" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
                               <Component id="CB_TipoCarro" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
                               <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="CB_CategoriaCarro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JB_Prepar_Marca" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JB_MuestraMarcas" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -420,12 +420,12 @@
         </Component>
         <Component class="javax.swing.JSpinner" name="JS_TiempoEnsamblaje">
         </Component>
-        <Component class="javax.swing.JButton" name="JB_Prepar_Marca">
+        <Component class="javax.swing.JButton" name="JB_MuestraMarcas">
           <Properties>
             <Property name="text" type="java.lang.String" value=" Marcas"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JB_Prepar_MarcaMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JB_MuestraMarcasMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>

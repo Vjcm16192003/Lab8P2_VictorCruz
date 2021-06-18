@@ -7,7 +7,6 @@ package lab8p2_victorcruz;
 
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,13 +21,13 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
      */
     public Lab8P2_VictorCruz() {
         initComponents();
-        DefaultComboBoxModel m1= (DefaultComboBoxModel) CB_CategoriaCarro.getModel();
+        DefaultComboBoxModel m1 = (DefaultComboBoxModel) CB_CategoriaCarro.getModel();
         m1.addElement("N/A");
         m1.addElement("Generalista");
         m1.addElement("Prenium");
         m1.addElement("Deportivo");
         CB_CategoriaCarro.setModel(m1);
-        DefaultComboBoxModel m2= (DefaultComboBoxModel) CB_TipoCarro.getModel();
+        DefaultComboBoxModel m2 = (DefaultComboBoxModel) CB_TipoCarro.getModel();
         m2.addElement("N/A");
         m2.addElement("Sedan");
         m2.addElement("Familiar");
@@ -36,18 +35,26 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         m2.addElement("FastBack");
         m2.addElement("SUV");
         CB_TipoCarro.setModel(m2);
-        DefaultComboBoxModel m3= (DefaultComboBoxModel) CB_TipoMotorCarro.getModel();
+        DefaultComboBoxModel m3 = (DefaultComboBoxModel) CB_TipoMotorCarro.getModel();
         m3.addElement("N/A");
         m3.addElement("Combustion");
         m3.addElement("Electrico");
         CB_TipoMotorCarro.setModel(m3);
-        DefaultComboBoxModel m4= (DefaultComboBoxModel) CB_TipoHibrido.getModel();
+        DefaultComboBoxModel m4 = (DefaultComboBoxModel) CB_TipoHibrido.getModel();
         m4.addElement("N/A");
         m4.addElement("MicroHibrido");
         m4.addElement("Hibrido Convencional");
         m4.addElement("Hibrido Enchufable");
         m4.addElement("Hibrido Electrico");
         CB_TipoHibrido.setModel(m4);
+
+        AdminCarros ap = new AdminCarros("./Carro.vjcm");
+        ap.cargarArchivo();
+        for (int i = 0; i < ap.getListaCarros().size(); i++) {
+            JTA_InfoCarros.append(i + ") " + " Categoria: " + ap.getListaCarros().get(i).getCategoria()
+                    + ",  VIN: " + ap.getListaCarros().get(i).getVIN()
+                    + ",  Marca: " + ap.getListaCarros().get(i).getMarca() + "\n");
+        }//fin del for
     }
 
     /**
@@ -89,7 +96,7 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         JS_CantPasajeros = new javax.swing.JSpinner();
         jLabel28 = new javax.swing.JLabel();
         JS_TiempoEnsamblaje = new javax.swing.JSpinner();
-        JB_Prepar_Marca = new javax.swing.JButton();
+        JB_MuestraMarcas = new javax.swing.JButton();
         JD_BuscarVIN = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -218,10 +225,10 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel28.setText("Ensamblaje(en segundos): ");
 
-        JB_Prepar_Marca.setText(" Marcas");
-        JB_Prepar_Marca.addMouseListener(new java.awt.event.MouseAdapter() {
+        JB_MuestraMarcas.setText(" Marcas");
+        JB_MuestraMarcas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JB_Prepar_MarcaMouseClicked(evt);
+                JB_MuestraMarcasMouseClicked(evt);
             }
         });
 
@@ -248,7 +255,7 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
                             .addGroup(JD_AdminCarroLayout.createSequentialGroup()
                                 .addComponent(CB_CategoriaCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JB_Prepar_Marca))
+                                .addComponent(JB_MuestraMarcas))
                             .addComponent(CB_MarcaCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CB_TipoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -302,7 +309,7 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
                             .addComponent(jLabel18)
                             .addGroup(JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(CB_CategoriaCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(JB_Prepar_Marca)))
+                                .addComponent(JB_MuestraMarcas)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
@@ -763,10 +770,10 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) JT_ListarCarros.getModel();
         for (int i = 0; i < ap.getListaCarros().size(); i++) {
             Object[] newrow = {ap.getListaCarros().get(i).getCategoria(),
-                 ap.getListaCarros().get(i).getColor(),
-                 ap.getListaCarros().get(i).getMarca(),
-                 ap.getListaCarros().get(i).getVIN(),
-                 ap.getListaCarros().get(i).getPrecio()};
+                ap.getListaCarros().get(i).getColor(),
+                ap.getListaCarros().get(i).getMarca(),
+                ap.getListaCarros().get(i).getVIN(),
+                ap.getListaCarros().get(i).getPrecio()};
             modelo.addRow(newrow);
         }//fin del for
         JT_ListarCarros.setModel(modelo);
@@ -798,21 +805,21 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         modelo.setRowCount(0);
         JT_BusquedaVIN.setModel(modelo);
         for (int i = 0; i < ap.getListaCarros().size(); i++) {
-            if (ap.getListaCarros().get(i).getVIN()== Integer.parseInt(TF_BuscarVIN.getText())) {
+            if (ap.getListaCarros().get(i).getVIN() == Integer.parseInt(TF_BuscarVIN.getText())) {
                 p = i;
                 Carros c = ap.getListaCarros().get(p);
                 Object[] newrow = {c.getCategoria(),
-                 c.getColor(),
-                 c.getMarca(),
-                 c.getVIN(),
-                 c.getPrecio()};
-            modelo.addRow(newrow);
+                    c.getColor(),
+                    c.getMarca(),
+                    c.getVIN(),
+                    c.getPrecio()};
+                modelo.addRow(newrow);
 
             }
         }//fin de las condiciones
         JT_BusquedaVIN.setModel(modelo);
-        
-        
+
+
     }//GEN-LAST:event_JB_BuscarVINMouseClicked
 
     private void JB_SalirSistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_SalirSistemaMouseClicked
@@ -821,14 +828,14 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
 
     private void JB_EliminarCarroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarCarroMouseClicked
         // TODO add your handling code here:
-        AdminCarros ar
+        AdminCarros ac
                 = new AdminCarros("./Carro.vjcm");
-        int p;
-        p = JT_ListarCarros.getSelectedRow();
-        ar.cargarArchivo();
-        help = ar.getListaCarros().get(p).getVIN();
-        ar.getListaCarros().remove(p);
-        ar.escribirArchivo();
+        int pos;
+        pos = JT_ListarCarros.getSelectedRow();
+        ac.cargarArchivo();
+        help = ac.getListaCarros().get(pos).getVIN();
+        ac.getListaCarros().remove(pos);
+        ac.escribirArchivo();
 
         Dba db = new Dba("./Carros.mdb");
         db.conectar();
@@ -839,13 +846,12 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         db.desconectar();
-        
+
         DefaultTableModel modelo1
                 = (DefaultTableModel) JT_ListarCarros.getModel();
-        modelo1.removeRow(p);
+        modelo1.removeRow(pos);
         JT_ListarCarros.setModel(modelo1);
 
-        
         JOptionPane.showMessageDialog(JD_AdminCarro,
                 "Carros Eliminada exsitosamente");
 
@@ -853,56 +859,57 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
 
     private void JB_ModificarCarroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarCarroMouseClicked
         // TODO add your handling code here:
-         AdminCarros ap = new AdminCarros("./Carro.vjcm");
-        int p;
-        p = JT_ListarCarros.getSelectedRow();
+        AdminCarros ac = new AdminCarros("./Carro.vjcm");
+        int pos;
+        pos = JT_ListarCarros.getSelectedRow();
 
-        ap.cargarArchivo();
-        help = ap.getListaCarros().get(p).getVIN();
-        ap.getListaCarros().get(p).setCategoria(JOptionPane.showInputDialog("Categoria del Carro: "));
-        ap.getListaCarros().get(p).setMarca(JOptionPane.showInputDialog("Marca del Carro: "));
-        ap.getListaCarros().get(p).setTipo(JOptionPane.showInputDialog("Tipo Carro: "));
-        ap.getListaCarros().get(p).setNum_puertas(Integer.parseInt(JOptionPane.showInputDialog("Numero de Puertas del Carro: ")));
-        ap.getListaCarros().get(p).setColor(JOptionPane.showInputDialog("Color del Carro: "));
-        ap.getListaCarros().get(p).setMotor(JOptionPane.showInputDialog("Tipo de Motor del Carro: "));
-        ap.getListaCarros().get(p).setPrecio(Integer.parseInt(JOptionPane.showInputDialog("Precio del Carro: ")));
-        ap.getListaCarros().get(p).setTipo_h(JOptionPane.showInputDialog("Tipo de Hibrido del Carro: "));
-        ap.getListaCarros().get(p).setCantidad_p(Integer.parseInt(JOptionPane.showInputDialog("Cantidad de pasajeros del Carro: ")));
-        ap.getListaCarros().get(p).setTiempo(Integer.parseInt(JOptionPane.showInputDialog("Tiempo en Ensamblaje del Carro: ")));
-        ap.escribirArchivo();
-        
-        
-        
+        ac.cargarArchivo();
+        help = ac.getListaCarros().get(pos).getVIN();
+        ac.getListaCarros().get(pos).setCategoria(JOptionPane.showInputDialog("Categoria del Carro[Premium/Generalista/Deportivo]: "));
+        ac.getListaCarros().get(pos).setMarca(JOptionPane.showInputDialog("Marca del Carro"+"\n"
+                + "[Seat/Audi/Lamborghini/Bentley/Porsche/Bugatti/Volkswagen/SKoda]: "));
+        ac.getListaCarros().get(pos).setTipo(JOptionPane.showInputDialog("Tipo Carro"+"\n"
+                + "[Sedan/familiar/Hatchback/Fastback/SUV]: "));
+        ac.getListaCarros().get(pos).setNum_puertas(Integer.parseInt(JOptionPane.showInputDialog("Numero de Puertas del Carro: ")));
+        ac.getListaCarros().get(pos).setColor(JOptionPane.showInputDialog("Color del Carro: "));
+        ac.getListaCarros().get(pos).setMotor(JOptionPane.showInputDialog("Tipo de Motor del Carro"
+                + "[Combustion/Electrico]: "));
+        ac.getListaCarros().get(pos).setPrecio(Integer.parseInt(JOptionPane.showInputDialog("Precio del Carro: ")));
+        ac.getListaCarros().get(pos).setTipo_h(JOptionPane.showInputDialog("Tipo de Hibrido del Carro: "));
+        ac.getListaCarros().get(pos).setCantidad_p(Integer.parseInt(JOptionPane.showInputDialog("Cantidad de pasajeros del Carro: ")));
+        ac.getListaCarros().get(pos).setTiempo(Integer.parseInt(JOptionPane.showInputDialog("Tiempo en Ensamblaje del Carro: ")));
+        ac.escribirArchivo();
+
         Dba db = new Dba("./Carros.mdb");
         db.conectar();
         try {
 
-            db.query.execute("update carros set categoria='" + ap.getListaCarros().get(p).getCategoria()+ "' where VIN=" + help);
-            db.query.execute("update carros set marca='" + ap.getListaCarros().get(p).getMarca()+ "' where VIN=" + help);
-            db.query.execute("update carros set tipo='" + ap.getListaCarros().get(p).getTipo()+ "' where VIN=" + help);
-            db.query.execute("update carros set puertas='" + ap.getListaCarros().get(p).getNum_puertas()+ "' where VIN=" + help);
-            db.query.execute("update carros set color='" + ap.getListaCarros().get(p).getColor()+ "' where VIN=" + help);
-            db.query.execute("update carros set motor='" + ap.getListaCarros().get(p).getMotor()+ "' where VIN=" + help);
-            db.query.execute("update carros set precio='" + ap.getListaCarros().get(p).getPrecio()+ "' where VIN=" + help);
-            db.query.execute("update carros set hibrido='" + ap.getListaCarros().get(p).getTipo_h()+ "' where VIN=" + help);
-            db.query.execute("update carros set pasajeros='" + ap.getListaCarros().get(p).getCantidad_p()+ "' where VIN=" + help);
-            db.query.execute("update carros set tiempo='" + ap.getListaCarros().get(p).getTiempo()+ "' where VIN=" + help);
+            db.query.execute("update carros set categoria='" + ac.getListaCarros().get(pos).getCategoria() + "' where VIN=" + help);
+            db.query.execute("update carros set marca='" + ac.getListaCarros().get(pos).getMarca() + "' where VIN=" + help);
+            db.query.execute("update carros set tipo='" + ac.getListaCarros().get(pos).getTipo() + "' where VIN=" + help);
+            db.query.execute("update carros set puertas='" + ac.getListaCarros().get(pos).getNum_puertas() + "' where VIN=" + help);
+            db.query.execute("update carros set color='" + ac.getListaCarros().get(pos).getColor() + "' where VIN=" + help);
+            db.query.execute("update carros set motor='" + ac.getListaCarros().get(pos).getMotor() + "' where VIN=" + help);
+            db.query.execute("update carros set precio='" + ac.getListaCarros().get(pos).getPrecio() + "' where VIN=" + help);
+            db.query.execute("update carros set hibrido='" + ac.getListaCarros().get(pos).getTipo_h() + "' where VIN=" + help);
+            db.query.execute("update carros set pasajeros='" + ac.getListaCarros().get(pos).getCantidad_p() + "' where VIN=" + help);
+            db.query.execute("update carros set tiempo='" + ac.getListaCarros().get(pos).getTiempo() + "' where VIN=" + help);
             db.commit();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         db.desconectar();
-       
+
         DefaultTableModel modelo1
                 = (DefaultTableModel) JT_ListarCarros.getModel();
-             modelo1.setRowCount(0);
-             for (int i = 0; i < ap.getListaCarros().size(); i++) {
-                   Carros c = ap.getListaCarros().get(i);
-                 Object[] newrow={c.getCategoria(),c.getColor(),c.getMarca(),c.getVIN(),c.getPrecio()};
-                 modelo1.addRow(newrow);
+        modelo1.setRowCount(0);
+        for (int i = 0; i < ac.getListaCarros().size(); i++) {
+            Carros c = ac.getListaCarros().get(i);
+            Object[] newrow = {c.getCategoria(), c.getColor(), c.getMarca(), c.getVIN(), c.getPrecio()};
+            modelo1.addRow(newrow);
         }
-         JT_ListarCarros.setModel(modelo1);
-         JOptionPane.showMessageDialog(JD_AdminCarro,
+        JT_ListarCarros.setModel(modelo1);
+        JOptionPane.showMessageDialog(JD_AdminCarro,
                 "Carro Modificado exsitosamente");
 
     }//GEN-LAST:event_JB_ModificarCarroMouseClicked
@@ -911,14 +918,14 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         AdminCarros ap = new AdminCarros("./Carro.vjcm");
         ap.cargarArchivo();
         for (int i = 0; i < ap.getListaCarros().size(); i++) {
-             if(ap.getListaCarros().get(i).getVIN() == Integer.parseInt(TF_VIN.getText())){
-                 while(ap.getListaCarros().get(i).getVIN() == Integer.parseInt(TF_VIN.getText())){
-                     String t=JOptionPane.showInputDialog(JD_AdminCarro, "El VIN que ingreso ya esta siendo utilizado por otro Auto porfavor ingrese uno nuevo: ");
-                     TF_VIN.setText(t);
-                 }//fin del while que valida que solo ingrese un VIN valido
-             }//fin de la condcion
+            if (ap.getListaCarros().get(i).getVIN() == Integer.parseInt(TF_VIN.getText())) {
+                while (ap.getListaCarros().get(i).getVIN() == Integer.parseInt(TF_VIN.getText())) {
+                    String t = JOptionPane.showInputDialog(JD_AdminCarro, "El VIN que ingreso ya esta siendo utilizado por otro Auto porfavor ingrese uno nuevo: ");
+                    TF_VIN.setText(t);
+                }//fin del while que valida que solo ingrese un VIN valido
+            }//fin de la condcion
         }//fin del for
-        
+
         String t_carro = "";
         String t_motor = "";
         String hybrid = "";
@@ -962,12 +969,12 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         db.desconectar();
-        
+
         AdminCarros ac = new AdminCarros("./Carro.vjcm");
         ac.cargarArchivo();
         ac.setCarros(c);
         ac.escribirArchivo();
-        
+
         DefaultTableModel modelo = (DefaultTableModel) JT_ListarCarros.getModel();
         Object[] newrow = {
             c.getCategoria(),
@@ -985,67 +992,101 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
 
     private void JB_BuscarCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_BuscarCategoriaMouseClicked
         // TODO add your handling code here:
-        /*
-        AdminPersonas ap = new AdminPersonas("./Personas.meh");
+        AdminCarros ap = new AdminCarros("./Carro.vjcm");
         ap.cargarArchivo();
-        int p = 0;
-        DefaultListModel modeloLISTA = (DefaultListModel) JL_TipoPersona.getModel();
-        modeloLISTA.removeAllElements();
-        JL_LlavePrimaria.setModel(modeloLISTA);
-        if (TF_BuscarTipoPersona.getText().equalsIgnoreCase("estudiante") || TF_BuscarTipoPersona.getText().equalsIgnoreCase("docente")
-                || TF_BuscarTipoPersona.getText().equalsIgnoreCase("administrativo") || TF_BuscarTipoPersona.getText().equalsIgnoreCase("ejecutivo")
-                || TF_BuscarTipoPersona.getText().equalsIgnoreCase("decano")) {
-            for (int i = 0; i < ap.getListaPersona().size(); i++) {
-                if (ap.getListaPersona().get(i).getTipo().equalsIgnoreCase(TF_BuscarTipoPersona.getText())) {
-                    p = i;
-                    modeloLISTA.addElement(ap.getListaPersona().get(p));
+        int pos = 0;
+        DefaultTableModel modelo = (DefaultTableModel) JT_BusquedaCategoria.getModel();
+        modelo.setRowCount(0);
+        JT_BusquedaCategoria.setModel(modelo);
+        if (TF_BuscarCategoria.getText().equalsIgnoreCase("premium") || TF_BuscarCategoria.getText().equalsIgnoreCase("generalista")
+                || TF_BuscarCategoria.getText().equalsIgnoreCase("deportivo")) {
+            for (int i = 0; i < ap.getListaCarros().size(); i++) {
+                if (ap.getListaCarros().get(i).getCategoria().equalsIgnoreCase(TF_BuscarCategoria.getText())) {
+                    pos = i;
+                    Carros c = ap.getListaCarros().get(pos);
+                    Object[] newrow = {c.getCategoria(),
+                        c.getColor(),
+                        c.getMarca(),
+                        c.getVIN(),
+                        c.getPrecio()};
+                    modelo.addRow(newrow);
                 }//fin del else 
-            }//fin del for                        
-
+            }//fin del for                       
         } else {
-            JOptionPane.showMessageDialog(JD_BuscarTIpoPersona, "Tipo no válido");
-            TF_BuscarTipoPersona.setText("");
+            JOptionPane.showMessageDialog(JD_BuscarCategoria, "Categoria no válido");
+            TF_BuscarCategoria.setText("");
         }
-        JL_TipoPersona.setModel(modeloLISTA);
-        */
+        JT_BusquedaCategoria.setModel(modelo);
+
     }//GEN-LAST:event_JB_BuscarCategoriaMouseClicked
 
     private void JB_BuscarMarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_BuscarMarcasMouseClicked
         // TODO add your handling code here:
+        AdminCarros ar = new AdminCarros("./Carro.vjcm");
+        ar.cargarArchivo();
+        int pos = 0;
+       DefaultTableModel model
+                = (DefaultTableModel) JT_BusquedaMarcas.getModel();
+        model.setRowCount(0);
+        JT_BusquedaMarcas.setModel(model);
+        if (TF_BuscarMarcas.getText().equalsIgnoreCase("Seat") || TF_BuscarMarcas.getText().equalsIgnoreCase("SKoda")
+                || TF_BuscarMarcas.getText().equalsIgnoreCase("Audi") || TF_BuscarMarcas.getText().equalsIgnoreCase("Volkswagen")
+                || TF_BuscarMarcas.getText().equalsIgnoreCase("Bently")|| TF_BuscarMarcas.getText().equalsIgnoreCase("Porsche")
+                || TF_BuscarMarcas.getText().equalsIgnoreCase("Lamborghini")|| TF_BuscarMarcas.getText().equalsIgnoreCase("Bugatti")) {
+            for (int i = 0; i < ar.getListaCarros().size(); i++) {
+                if (ar.getListaCarros().get(i).getMarca().equalsIgnoreCase(TF_BuscarMarcas.getText())) {
+                    pos=i;
+                    Carros c = ar.getListaCarros().get(pos);
+                    Object[] newrow={c.getCategoria(),
+                        c.getColor(),c.getMarca(),
+                        c.getVIN(),
+                        c.getPrecio()};
+                    model.addRow(newrow);
+                }//fin del else 
+            }//fin del for                        
+
+        } else {
+            JOptionPane.showMessageDialog(JD_BuscarMarcas, "Marca no válida");
+            TF_BuscarMarcas.setText("");
+        }
+        JT_BusquedaMarcas.setModel(model);
+
     }//GEN-LAST:event_JB_BuscarMarcasMouseClicked
 
     private void JMI_BusquedaMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_BusquedaMarcasActionPerformed
         BusquedaMarcas();
     }//GEN-LAST:event_JMI_BusquedaMarcasActionPerformed
 
-    private void JB_Prepar_MarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_Prepar_MarcaMouseClicked
+    private void JB_MuestraMarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_MuestraMarcasMouseClicked
         // TODO add your handling code here:
-        int check=CB_CategoriaCarro.getSelectedIndex();
-        DefaultComboBoxModel modelo= (DefaultComboBoxModel) CB_MarcaCarro.getModel();
+        //Boton que setea el CB de la marca segun la categoria que Ingrese
+        int aux = CB_CategoriaCarro.getSelectedIndex();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) CB_MarcaCarro.getModel();
+
         modelo.removeAllElements();
         CB_MarcaCarro.setModel(modelo);
-        if(check==1){
-             DefaultComboBoxModel modelo1= (DefaultComboBoxModel) CB_MarcaCarro.getModel();
-             modelo1.addElement("Seat");
-             modelo1.addElement("SKoda");
-             CB_MarcaCarro.setModel(modelo1);
-        }else if(check==2){
-             DefaultComboBoxModel modelo1= (DefaultComboBoxModel) CB_MarcaCarro.getModel();
-             modelo1.addElement("Audi");
-             modelo1.addElement("Volkswagen");
-             modelo1.addElement("Bently");
-             CB_MarcaCarro.setModel(modelo1);
-        }else if(check==3){
-             DefaultComboBoxModel modelo1= (DefaultComboBoxModel) CB_MarcaCarro.getModel();
-             modelo1.addElement("Porsche");
-             modelo1.addElement("Lamborghini");
-             modelo1.addElement("Bugatti");
-             CB_MarcaCarro.setModel(modelo1);
-        }else{
+        if (aux == 1) {
+            DefaultComboBoxModel m1 = (DefaultComboBoxModel) CB_MarcaCarro.getModel();
+            m1.addElement("Seat");
+            m1.addElement("SKoda");
+            CB_MarcaCarro.setModel(m1);
+        } else if (aux == 2) {
+            DefaultComboBoxModel m2 = (DefaultComboBoxModel) CB_MarcaCarro.getModel();
+            m2.addElement("Audi");
+            m2.addElement("Volkswagen");
+            m2.addElement("Bently");
+            CB_MarcaCarro.setModel(m2);
+        } else if (aux == 3) {
+            DefaultComboBoxModel m3 = (DefaultComboBoxModel) CB_MarcaCarro.getModel();
+            m3.addElement("Porsche");
+            m3.addElement("Lamborghini");
+            m3.addElement("Bugatti");
+            CB_MarcaCarro.setModel(m3);
+        } else {
             JOptionPane.showMessageDialog(JD_AdminCarro, "Por favor selecione un opcion que no sea N/A ");
         }
-        
-    }//GEN-LAST:event_JB_Prepar_MarcaMouseClicked
+
+    }//GEN-LAST:event_JB_MuestraMarcasMouseClicked
 
     public void AdminCarro() {
         JD_AdminCarro.pack();
@@ -1081,7 +1122,7 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         JD_BuscarCategoria.setLocationRelativeTo(this);
         JD_BuscarCategoria.setVisible(true);
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1130,7 +1171,7 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JButton JB_BuscarVIN;
     private javax.swing.JButton JB_EliminarCarro;
     private javax.swing.JButton JB_ModificarCarro;
-    private javax.swing.JButton JB_Prepar_Marca;
+    private javax.swing.JButton JB_MuestraMarcas;
     private javax.swing.JButton JB_SalirSistema;
     private javax.swing.JDialog JD_AdminCarro;
     private javax.swing.JDialog JD_BuscarAtributoLibre;
@@ -1190,7 +1231,6 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
-
     int help;
-    Double help2;
+
 }
