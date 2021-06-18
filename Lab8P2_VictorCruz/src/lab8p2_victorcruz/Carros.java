@@ -11,7 +11,7 @@ package lab8p2_victorcruz;
  * @author Victor Jafet Cruz
  */
 public class Carros {
-    private String categoria,nombre_car;
+    private String categoria;
     private int VIN;
     private String marca,tipo;
     private int num_puertas;
@@ -21,9 +21,8 @@ public class Carros {
     private int cantidad_p,tiempo;
     private static final long SerialVersionUID=789L;
 
-    public Carros(String categoria, String nombre_car, int VIN, String marca, String tipo, int num_puertas, String color, String motor, double precio, String tipo_h, int cantidad_p, int tiempo) {
+    public Carros(String categoria, int VIN, String marca, String tipo, int num_puertas, String color, String motor, double precio, String tipo_h, int cantidad_p, int tiempo) {
         this.categoria = categoria;
-        this.nombre_car = nombre_car;
         this.VIN = VIN;
         this.marca = marca;
         this.tipo = tipo;
@@ -44,13 +43,7 @@ public class Carros {
         this.categoria = categoria;
     }
 
-    public String getNombre_car() {
-        return nombre_car;
-    }
-
-    public void setNombre_car(String nombre_car) {
-        this.nombre_car = nombre_car;
-    }
+    
 
     public int getVIN() {
         return VIN;
@@ -134,7 +127,7 @@ public class Carros {
 
     @Override
     public String toString() {
-        return "Carros{" + "categoria=" + categoria + ", nombre_car=" + nombre_car + ", VIN=" + VIN + ", marca=" + marca + ", tipo=" + tipo + ", num_puertas=" + num_puertas + ", color=" + color + ", motor=" + motor + ", precio=" + precio + ", tipo_h=" + tipo_h + ", cantidad_p=" + cantidad_p + ", tiempo=" + tiempo + '}';
+        return "Carros{" + "categoria=" + categoria + ", VIN=" + VIN + ", marca=" + marca + ", tipo=" + tipo + ", num_puertas=" + num_puertas + ", color=" + color + ", motor=" + motor + ", precio=" + precio + ", tipo_h=" + tipo_h + ", cantidad_p=" + cantidad_p + ", tiempo=" + tiempo + '}';
     }
     
     

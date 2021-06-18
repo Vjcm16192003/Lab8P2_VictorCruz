@@ -5,6 +5,8 @@
  */
 package lab8p2_victorcruz;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Victor Jafet Cruz
@@ -27,6 +29,42 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JD_AdminCarro = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        JB_AgregarPersona = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        JB_ModificarPersona = new javax.swing.JButton();
+        JB_EliminarPersona = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JT_ListarCarros = new javax.swing.JTable();
+        JD_BuscarVIN = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        TF_BuscarVIN = new javax.swing.JTextField();
+        JB_BuscarVIN = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JT_BusquedaVIN = new javax.swing.JTable();
+        JD_BuscarAtributoLibre = new javax.swing.JDialog();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        JT_BusquedaAtributo = new javax.swing.JTable();
+        TF_BuscarAtriburoLibre = new javax.swing.JTextField();
+        JB_BuscarAtributoLibre = new javax.swing.JButton();
+        JD_BuscarCategoria = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        JT_BusquedaCategoria = new javax.swing.JTable();
+        TF_BuscarCategoria = new javax.swing.JTextField();
+        JB_BuscarCategoria = new javax.swing.JButton();
+        JD_BuscarMarcas = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        JT_BusquedaMarcas = new javax.swing.JTable();
+        TF_BuscarMarcas = new javax.swing.JTextField();
+        JB_BuscarMarcas = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         JB_LogOff = new javax.swing.JButton();
         JB_SalirSistema = new javax.swing.JButton();
@@ -40,6 +78,396 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         JMI_BusquedaCategoria = new javax.swing.JMenuItem();
         JMI_BusquedaAtributoLibre = new javax.swing.JMenuItem();
 
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel12.setText("Carros");
+
+        JB_AgregarPersona.setText("Agregar");
+        JB_AgregarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_AgregarPersonaMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel4.setText("Listar Carros");
+
+        JB_ModificarPersona.setText("Modificar");
+        JB_ModificarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_ModificarPersonaMouseClicked(evt);
+            }
+        });
+
+        JB_EliminarPersona.setText("Eliminar");
+        JB_EliminarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_EliminarPersonaMouseClicked(evt);
+            }
+        });
+
+        JT_ListarCarros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Categoria", "Color", "Marca", "VIN", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(JT_ListarCarros);
+
+        javax.swing.GroupLayout JD_AdminCarroLayout = new javax.swing.GroupLayout(JD_AdminCarro.getContentPane());
+        JD_AdminCarro.getContentPane().setLayout(JD_AdminCarroLayout);
+        JD_AdminCarroLayout.setHorizontalGroup(
+            JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_AdminCarroLayout.createSequentialGroup()
+                .addGap(543, 543, 543)
+                .addComponent(jLabel12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_AdminCarroLayout.createSequentialGroup()
+                .addContainerGap(400, Short.MAX_VALUE)
+                .addGroup(JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JD_AdminCarroLayout.createSequentialGroup()
+                        .addGroup(JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JB_AgregarPersona)
+                            .addComponent(JB_ModificarPersona))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JB_EliminarPersona)))
+                .addGap(39, 39, 39))
+        );
+        JD_AdminCarroLayout.setVerticalGroup(
+            JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_AdminCarroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JD_AdminCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JB_ModificarPersona)
+                    .addComponent(JB_EliminarPersona))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addComponent(JB_AgregarPersona)
+                .addGap(19, 19, 19))
+        );
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel5.setText("Busqueda por VIN");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setText("Buscar:");
+
+        JB_BuscarVIN.setText("Resultados");
+        JB_BuscarVIN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_BuscarVINMouseClicked(evt);
+            }
+        });
+
+        JT_BusquedaVIN.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Categoria", "Color", "Marca", "VIN", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(JT_BusquedaVIN);
+
+        javax.swing.GroupLayout JD_BuscarVINLayout = new javax.swing.GroupLayout(JD_BuscarVIN.getContentPane());
+        JD_BuscarVIN.getContentPane().setLayout(JD_BuscarVINLayout);
+        JD_BuscarVINLayout.setHorizontalGroup(
+            JD_BuscarVINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_BuscarVINLayout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(JD_BuscarVINLayout.createSequentialGroup()
+                .addGroup(JD_BuscarVINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_BuscarVINLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(TF_BuscarVIN, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JB_BuscarVIN))
+                    .addGroup(JD_BuscarVINLayout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        JD_BuscarVINLayout.setVerticalGroup(
+            JD_BuscarVINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_BuscarVINLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(116, 116, 116)
+                .addGroup(JD_BuscarVINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(JB_BuscarVIN)
+                    .addComponent(TF_BuscarVIN, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel11.setText("Busqueda por Atributo");
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel13.setText("Buscar(Menos VIN,Categoria y Marcas):");
+
+        JT_BusquedaAtributo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Color", "Tipo", "Motor", "Tipo Hibrido", "Numero de Puertas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(JT_BusquedaAtributo);
+
+        JB_BuscarAtributoLibre.setText("Resultados");
+        JB_BuscarAtributoLibre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_BuscarAtributoLibreMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JD_BuscarAtributoLibreLayout = new javax.swing.GroupLayout(JD_BuscarAtributoLibre.getContentPane());
+        JD_BuscarAtributoLibre.getContentPane().setLayout(JD_BuscarAtributoLibreLayout);
+        JD_BuscarAtributoLibreLayout.setHorizontalGroup(
+            JD_BuscarAtributoLibreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_BuscarAtributoLibreLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TF_BuscarAtriburoLibre, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(JB_BuscarAtributoLibre)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_BuscarAtributoLibreLayout.createSequentialGroup()
+                .addGap(0, 67, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+            .addGroup(JD_BuscarAtributoLibreLayout.createSequentialGroup()
+                .addGap(310, 310, 310)
+                .addComponent(jLabel11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        JD_BuscarAtributoLibreLayout.setVerticalGroup(
+            JD_BuscarAtributoLibreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_BuscarAtributoLibreLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(116, 116, 116)
+                .addGroup(JD_BuscarAtributoLibreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(JB_BuscarAtributoLibre)
+                    .addComponent(TF_BuscarAtriburoLibre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel14.setText("Busqueda por Categoria");
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel15.setText("Buscar:");
+
+        JT_BusquedaCategoria.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Categoria", "Color", "Marca", "VIN", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(JT_BusquedaCategoria);
+
+        JB_BuscarCategoria.setText("Resultados");
+        JB_BuscarCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_BuscarCategoriaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JD_BuscarCategoriaLayout = new javax.swing.GroupLayout(JD_BuscarCategoria.getContentPane());
+        JD_BuscarCategoria.getContentPane().setLayout(JD_BuscarCategoriaLayout);
+        JD_BuscarCategoriaLayout.setHorizontalGroup(
+            JD_BuscarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_BuscarCategoriaLayout.createSequentialGroup()
+                .addContainerGap(70, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(JD_BuscarCategoriaLayout.createSequentialGroup()
+                .addGroup(JD_BuscarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_BuscarCategoriaLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addComponent(TF_BuscarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JB_BuscarCategoria))
+                    .addGroup(JD_BuscarCategoriaLayout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(jLabel14)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        JD_BuscarCategoriaLayout.setVerticalGroup(
+            JD_BuscarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_BuscarCategoriaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addGap(116, 116, 116)
+                .addGroup(JD_BuscarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(JB_BuscarCategoria)
+                    .addComponent(TF_BuscarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel16.setText("Busqueda por Marcas");
+
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel17.setText("Buscar:");
+
+        JT_BusquedaMarcas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Categoria", "Color", "Marca", "VIN", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(JT_BusquedaMarcas);
+
+        JB_BuscarMarcas.setText("Resultados");
+        JB_BuscarMarcas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_BuscarMarcasMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JD_BuscarMarcasLayout = new javax.swing.GroupLayout(JD_BuscarMarcas.getContentPane());
+        JD_BuscarMarcas.getContentPane().setLayout(JD_BuscarMarcasLayout);
+        JD_BuscarMarcasLayout.setHorizontalGroup(
+            JD_BuscarMarcasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_BuscarMarcasLayout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(JD_BuscarMarcasLayout.createSequentialGroup()
+                .addGroup(JD_BuscarMarcasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_BuscarMarcasLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(TF_BuscarMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JB_BuscarMarcas))
+                    .addGroup(JD_BuscarMarcasLayout.createSequentialGroup()
+                        .addGap(286, 286, 286)
+                        .addComponent(jLabel16)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        JD_BuscarMarcasLayout.setVerticalGroup(
+            JD_BuscarMarcasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_BuscarMarcasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(116, 116, 116)
+                .addGroup(JD_BuscarMarcasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(JB_BuscarMarcas)
+                    .addComponent(TF_BuscarMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jToolBar1.setRollover(true);
@@ -48,12 +476,22 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         JB_LogOff.setFocusable(false);
         JB_LogOff.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         JB_LogOff.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        JB_LogOff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_LogOffMouseClicked(evt);
+            }
+        });
         jToolBar1.add(JB_LogOff);
 
         JB_SalirSistema.setText("Salir del Sistema");
         JB_SalirSistema.setFocusable(false);
         JB_SalirSistema.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         JB_SalirSistema.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        JB_SalirSistema.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_SalirSistemaMouseClicked(evt);
+            }
+        });
         jToolBar1.add(JB_SalirSistema);
 
         JTA_InfoCarros.setColumns(20);
@@ -110,17 +548,17 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(56, 56, 56)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(35, 35, 35)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 47, Short.MAX_VALUE))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,6 +580,81 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JMI_BusquedaAtributoLibreActionPerformed
 
+    private void JB_BuscarVINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_BuscarVINMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_JB_BuscarVINMouseClicked
+
+    private void JB_LogOffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_LogOffMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_LogOffMouseClicked
+
+    private void JB_SalirSistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_SalirSistemaMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_JB_SalirSistemaMouseClicked
+
+    private void JB_EliminarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarPersonaMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_JB_EliminarPersonaMouseClicked
+
+    private void JB_ModificarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarPersonaMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_JB_ModificarPersonaMouseClicked
+
+    private void JB_AgregarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregarPersonaMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_JB_AgregarPersonaMouseClicked
+
+    private void JB_BuscarAtributoLibreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_BuscarAtributoLibreMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_BuscarAtributoLibreMouseClicked
+
+    private void JB_BuscarCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_BuscarCategoriaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_BuscarCategoriaMouseClicked
+
+    private void JB_BuscarMarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_BuscarMarcasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_BuscarMarcasMouseClicked
+
+    public void AdminCarro() {
+        JD_AdminCarro.pack();
+        JD_AdminCarro.setModal(true);
+        JD_AdminCarro.setLocationRelativeTo(this);
+        JD_AdminCarro.setVisible(true);
+    }
+
+    public void Menu() {
+        JD_BuscarMarcas.pack();
+        JD_BuscarMarcas.setModal(true);
+        JD_BuscarMarcas.setLocationRelativeTo(this);
+        JD_BuscarMarcas.setVisible(true);
+    }
+
+    public void BusquedaAtributo() {
+        JD_BuscarAtributoLibre.pack();
+        JD_BuscarAtributoLibre.setModal(true);
+        JD_BuscarAtributoLibre.setLocationRelativeTo(this);
+        JD_BuscarAtributoLibre.setVisible(true);
+    }
+
+    public void BusquedaVIN() {
+        JD_BuscarVIN.pack();
+        JD_BuscarVIN.setModal(true);
+        JD_BuscarVIN.setLocationRelativeTo(this);
+        JD_BuscarVIN.setVisible(true);
+    }
+
+    public void BusquedaCategoria() {
+        JD_BuscarCategoria.pack();
+        JD_BuscarCategoria.setModal(true);
+        JD_BuscarCategoria.setLocationRelativeTo(this);
+        JD_BuscarCategoria.setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -178,17 +691,53 @@ public class Lab8P2_VictorCruz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_AgregarPersona;
+    private javax.swing.JButton JB_BuscarAtributoLibre;
+    private javax.swing.JButton JB_BuscarCategoria;
+    private javax.swing.JButton JB_BuscarMarcas;
+    private javax.swing.JButton JB_BuscarVIN;
+    private javax.swing.JButton JB_EliminarPersona;
     private javax.swing.JButton JB_LogOff;
+    private javax.swing.JButton JB_ModificarPersona;
     private javax.swing.JButton JB_SalirSistema;
+    private javax.swing.JDialog JD_AdminCarro;
+    private javax.swing.JDialog JD_BuscarAtributoLibre;
+    private javax.swing.JDialog JD_BuscarCategoria;
+    private javax.swing.JDialog JD_BuscarMarcas;
+    private javax.swing.JDialog JD_BuscarVIN;
     private javax.swing.JMenuItem JMI_BusquedaAtributoLibre;
     private javax.swing.JMenuItem JMI_BusquedaCategoria;
     private javax.swing.JMenuItem JMI_BusquedaVIN;
     private javax.swing.JMenuItem JMI_CRUDCarros;
     private javax.swing.JTextArea JTA_InfoCarros;
+    private javax.swing.JTable JT_BusquedaAtributo;
+    private javax.swing.JTable JT_BusquedaCategoria;
+    private javax.swing.JTable JT_BusquedaMarcas;
+    private javax.swing.JTable JT_BusquedaVIN;
+    private javax.swing.JTable JT_ListarCarros;
+    private javax.swing.JTextField TF_BuscarAtriburoLibre;
+    private javax.swing.JTextField TF_BuscarCategoria;
+    private javax.swing.JTextField TF_BuscarMarcas;
+    private javax.swing.JTextField TF_BuscarVIN;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
