@@ -1,5 +1,7 @@
 package lab8p2_victorcruz;
 
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +12,7 @@ package lab8p2_victorcruz;
  *
  * @author Victor Jafet Cruz
  */
-public class Carros {
+public class Carros implements Serializable{
     private String categoria;
     private int VIN;
     private String marca,tipo;
