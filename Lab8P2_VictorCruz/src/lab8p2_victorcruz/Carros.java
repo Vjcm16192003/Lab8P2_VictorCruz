@@ -16,12 +16,12 @@ public class Carros {
     private String marca,tipo;
     private int num_puertas;
     private String color,motor;
-    private double precio;
+    private int precio;
     private String tipo_h;
     private int cantidad_p,tiempo;
     private static final long SerialVersionUID=789L;
 
-    public Carros(String categoria, int VIN, String marca, String tipo, int num_puertas, String color, String motor, double precio, String tipo_h, int cantidad_p, int tiempo) {
+    public Carros(String categoria, int VIN, String marca, String tipo, int num_puertas, String color, String motor, int precio, String tipo_h, int cantidad_p, int tiempo) {
         this.categoria = categoria;
         this.VIN = VIN;
         this.marca = marca;
@@ -97,7 +97,7 @@ public class Carros {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
