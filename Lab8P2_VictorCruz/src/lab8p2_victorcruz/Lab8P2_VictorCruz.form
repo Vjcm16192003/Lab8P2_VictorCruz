@@ -197,7 +197,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Listar Carros"/>
+            <Property name="text" type="java.lang.String" value="Listar Carros(recorda Seleccionar el Row) "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="JB_ModificarCarro">
